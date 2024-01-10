@@ -102,9 +102,9 @@ void uartTask()
         uartUsb.read( &receivedChar, 2 );
         if ( receivedChar == '2') {
             if ( alarmState ) {
-                uartUsb.write( "Alarm activated\r\n", 19);
+                uartUsb.write( "Alarm activated\r\n", 17);
             } else {
-                uartUsb.write( "Alarm NOT activated\r\n", 23);
+                uartUsb.write( "Alarm NOT activated\r\n", 21);
             }
         } else {
             availableCommands();
