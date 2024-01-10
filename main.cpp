@@ -99,12 +99,12 @@ void uartTask()
 {
     char receivedChar = '\0';
     if( uartUsb.readable() ) {
-        uartUsb.read( &receivedChar, 1 );
-        if ( receivedChar == '1') {
+        uartUsb.read( &receivedChar, 2 );
+        if ( receivedChar == '2') {
             if ( alarmState ) {
-                uartUsb.write( "The alarm is activated\r\n", 24);
+                uartUsb.write( "Alarm activated\r\n", 19);
             } else {
-                uartUsb.write( "The alarm is not activated\r\n", 28);
+                uartUsb.write( "Alarm NOT activated\r\n", 23);
             }
         } else {
             availableCommands();
@@ -115,5 +115,5 @@ void uartTask()
 void availableCommands()
 {
     uartUsb.write( "Available commands:\r\n", 21 );
-    uartUsb.write( "Press '1' to get the alarm state\r\n\r\n", 36 );
+    uartUsb.write( "Press '2' to get the alarm state\r\n\r\n", 36 );
 }
